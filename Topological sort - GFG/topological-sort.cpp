@@ -7,9 +7,47 @@ class Solution
 {
 	public:
 	//Function to return list containing vertices in Topological order. 
+	void DFSRec(int i, stack<int>&st,vector<int> adj[], vector<bool>&visited){
+	    visited[i]=true;
+	    vector<int> data = adj[i];
+	    for(auto u:data ){
+	        if(visited[u]==false){
+	            DFSRec(u,st,adj,visited);
+	        }
+	        
+	    }
+	    st.push(i);
+	}
+	
 	vector<int> topoSort(int V, vector<int> adj[]) 
 	{
 	    // code here
+	    
+	    stack<int> st;
+	    vector<bool> visited(V,false);
+	    vector<int> ans;
+	    
+	    for(int i=0;i<V;i++){
+	        if(visited[i]==false){
+	            DFSRec(i, st,adj,visited);
+	        }
+	    }
+	    
+	    while(!st.empty())
+	    {
+	        int x = st.top();
+	        st.pop();
+	        ans.push_back(x);
+	        
+	        
+	    }
+	    
+	    
+	    return ans;
+	    
+	    /*
+	    
+	    // this is the solution using BFS approach
 	    vector<int> ans;
 	    queue<int>q;
 	    vector<int> indegree(V,0);
@@ -41,7 +79,7 @@ class Solution
 	            }
 	        }
 	    }
-	    return ans;
+	    return ans;*/
 	}
 };
 
