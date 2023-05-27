@@ -6,27 +6,47 @@ using namespace std;
 // } Driver Code Ends
 
 
-
 class Solution
 {
     public:
     //Function to find the maximum occurring character in a string.
+    
+  
     char getMaxOccuringChar(string str)
     {
-        int arr[26] ={0};
-        for(int i=0;i<str.length();i++){
-            int num = str[i] - 'a';
+        int maxi =-1;
+        int n= str.length();
+        
+        int arr[26] = {0};
+        
+        for(int i=0;i<n;i++){
+            char ch = str[i];
+            int num =0;
+            if(ch >= 'a' && ch <='z'){
+                num = ch - 'a';
+                
+            }else if(str[i] >= 'A' && str[i] <='Z' ){
+                num = ch - 'A';
+                
+                
+            }
             arr[num]++;
         }
         
-        int maxi=-1, ans=0;
+        
+        int ans = 0;
+        
         for(int i=0;i<26;i++){
-            if(maxi<arr[i]){
+            if(maxi < arr[i]){
+                ans =i;
                 maxi = arr[i];
-                ans=i;
             }
+            
         }
-        return 'a'+ans;
+        
+        char finala = ans + 'a';
+        return finala;
+        
     }
 
 };
