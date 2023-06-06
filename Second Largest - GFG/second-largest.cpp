@@ -9,7 +9,66 @@ class Solution{
 public:	
 	// Function returns the second
 	// largest elements
+	
+	void sort(int arr[], int n){
+	    for(int i=0 ; i<n-1;i++){
+	        int min = i;
+	        for(int j=i+1; j<n;j++){
+	            if(arr[j] < arr[min]){
+	                min = j;
+	            }
+	            
+	        }
+	        swap(arr[i] , arr[min]);
+	    }
+	}
+	
+	
+	
 	int print2largest(int arr[], int n) {
+	    
+	   
+	   
+	    // brute force solution:
+	    
+	   /* sort(arr, n);
+	    int larg = arr[n-1];
+	    int sec_larg = -1;
+	    for(int i = n-2; i >=0;i--){
+	        if(arr[i] != larg){
+	            sec_larg = arr[i];
+	            break;
+	        }
+	    }
+	    
+	    return sec_larg;
+	    // ye kuch test cases ke baad TLE maar jayega!
+	    TC : O(n log n) + O(n)
+	    */
+	    
+	    
+	    
+	    
+	    
+	    // better solution 
+	    
+	    int larg =0;
+	    int sec_larg = -1;
+	    for(int i=0;i<n;i++){
+	        if(arr[i] > larg){
+	            larg = arr[i];
+	        }
+	    }
+	    for(int i=0;i<n;i++){
+	        if(arr[i] > sec_larg && arr[i] < larg){
+	            sec_larg = arr[i];
+	        }
+	    }
+	    
+	    return sec_larg;
+	    
+	    
+	    /*
 	    int sec_larg=-1;
 	    int larg = -1;
 	    for(int i=0;i<n;i++){
@@ -22,7 +81,7 @@ public:
 	        }
 	        
 	    }
-	    return sec_larg;
+	    return sec_larg;*/
 	}
 };
 
