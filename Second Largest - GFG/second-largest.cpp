@@ -52,7 +52,7 @@ public:
 	    
 	    // better solution 
 	    
-	    int larg =0;
+/*	    int larg =0;
 	    int sec_larg = -1;
 	    for(int i=0;i<n;i++){
 	        if(arr[i] > larg){
@@ -66,9 +66,15 @@ public:
 	    }
 	    
 	    return sec_larg;
+	    // iski TC : O(n) + O(n) = 2 O(n);
+	    */
 	    
+	   
+	   
+	   //optimal solution 
+	   
+	   
 	    
-	    /*
 	    int sec_larg=-1;
 	    int larg = -1;
 	    for(int i=0;i<n;i++){
@@ -81,7 +87,8 @@ public:
 	        }
 	        
 	    }
-	    return sec_larg;*/
+	    return sec_larg;
+	    // TC : O(n);
 	}
 };
 
